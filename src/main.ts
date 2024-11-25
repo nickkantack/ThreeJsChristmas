@@ -47,106 +47,269 @@ const glassMaterial: MeshStandardMaterial = new MeshStandardMaterial({
 const wallMaterial: MeshStandardMaterial = new MeshStandardMaterial({color: 0xbbddaa});
 const fireplaceMaterial: MeshStandardMaterial = new MeshStandardMaterial({color: 0xffffff});
 const tvMaterial: MeshStandardMaterial = new MeshStandardMaterial({color: 0x111111});
+const sillMaterial: MeshStandardMaterial = new MeshStandardMaterial({color: 0x554400});
+const floorMaterial: MeshStandardMaterial = new MeshStandardMaterial({color: 0x333333});
+
+const yOffset = .3;
 
 // Glass
 scene.add((() => { 
   const mesh: Mesh = new Mesh(new BoxGeometry(3, 2.5, 0.02), glassMaterial);
-  mesh.position.y += .4;
+  mesh.position.y += .4 + yOffset;
   return mesh;
 })());
 
 // Bottom part of wall
 scene.add((() => { 
   const mesh: Mesh = new Mesh(new BoxGeometry(3.5, .205, 0.03), wallMaterial);
-  mesh.position.y += -.675 - .205 / 2;
+  mesh.position.y += -.675 - .205 / 2 + yOffset;
   return mesh;
 })());
 // Horizontal stripe of wall
 scene.add((() => { 
   const mesh: Mesh = new Mesh(new BoxGeometry(3.5, .42, 0.03), wallMaterial);
-  mesh.position.y += .42 / 2;
+  mesh.position.y += .42 / 2 + yOffset;
   return mesh;
 })());
 // Verical stripe of wall
 scene.add((() => { 
   const mesh: Mesh = new Mesh(new BoxGeometry(1.025, 1.545, 0.03), wallMaterial);
-  mesh.position.y += -.215 / 2;
+  mesh.position.y += -.215 / 2 + yOffset;
   return mesh;
 })());
 // Fireplace
 scene.add((() => { 
   const mesh: Mesh = new Mesh(new BoxGeometry(0.91, .58, 0.18 * 2), fireplaceMaterial);
-  mesh.position.y += -.3 - .58 / 2;
+  mesh.position.y += -.3 - .58 / 2 + yOffset;
   return mesh;
 })());
 // Wall top horizontal slice
 scene.add((() => { 
   const mesh: Mesh = new Mesh(new BoxGeometry(3.5, .42, 0.03), wallMaterial);
-  mesh.position.y += .675 + .42 + .245 + .42 / 2;
+  mesh.position.y += .675 + .42 + .245 + .42 / 2 + yOffset;
   return mesh;
 })());
 // Left top window top
 scene.add((() => { 
   const mesh: Mesh = new Mesh(new BoxGeometry(3.5 / 2 - .775 / 2 - .135, .40, 0.03), wallMaterial);
-  mesh.position.y += .42 + .675 + .4 / 2;
+  mesh.position.y += .42 + .675 + .4 / 2 + yOffset;
   mesh.position.x += -3.5 / 2 + (3.5 / 2 - .775 / 2 - .135) / 2 + .05;
   return mesh;
 })());
 // Right top window top
 scene.add((() => { 
   const mesh: Mesh = new Mesh(new BoxGeometry(3.5 / 2 - .775 / 2 - .135, .40, 0.03), wallMaterial);
-  mesh.position.y += .42 + .675 + .4 / 2;
+  mesh.position.y += .42 + .675 + .4 / 2 + yOffset;
   mesh.position.x += +3.5 / 2 - (3.5 / 2 - .775 / 2 - .135) / 2 - .05;
   return mesh;
 })());
 // Left most vertical wall stripe
 scene.add((() => { 
   const mesh: Mesh = new Mesh(new BoxGeometry(3.5 / 2 - .775 * 1.5 - .135, 2.6, 0.03), wallMaterial);
-  mesh.position.y += .44;
+  mesh.position.y += .44 + yOffset;
   mesh.position.x += -3.5 / 2 + (3.5 / 2 - .775 * 1.5 - .135) / 2;
   return mesh;
 })());
 // Right most vertical wall stripe
 scene.add((() => { 
   const mesh: Mesh = new Mesh(new BoxGeometry(3.5 / 2 - .775 * 1.5 - .135, 2.6, 0.03), wallMaterial);
-  mesh.position.y += .44;
+  mesh.position.y += .44 + yOffset;
   mesh.position.x += 3.5 / 2 - (3.5 / 2 - .775 * 1.5 - .135) / 2;
   return mesh;
 })());
 // Left middle vertical stripe
 scene.add((() => { 
   const mesh: Mesh = new Mesh(new BoxGeometry(.135, 2.6, 0.03), wallMaterial);
-  mesh.position.y += .44;
+  mesh.position.y += .44 + yOffset;
   mesh.position.x += -1.025 / 2 + .135 / 2;
   return mesh;
 })());
 // Right middle vertical stripe
 scene.add((() => { 
   const mesh: Mesh = new Mesh(new BoxGeometry(.135, 2.6, 0.03), wallMaterial);
-  mesh.position.y += .44;
+  mesh.position.y += .44 + yOffset;
   mesh.position.x += 1.025 / 2 - .135 / 2;
   return mesh;
 })());
 // Small TV
+/*
 scene.add((() => { 
   const mesh: Mesh = new Mesh(new BoxGeometry(.655, .375, 0.03), tvMaterial);
   mesh.position.y += -.3 + .375 / 2 + .03;
   mesh.position.z += 0.07;
   return mesh;
 })());
+*/
 // Large TV
 scene.add((() => { 
   const mesh: Mesh = new Mesh(new BoxGeometry(.76, .46, 0.03), tvMaterial);
-  mesh.position.y += -.3 + .46 / 2 + .03;
+  mesh.position.y += -.3 + .46 / 2 + .03 + yOffset;
+  mesh.position.z += 0.07;
+  return mesh;
+})());
+// 98 inch
+scene.add((() => { 
+  const mesh: Mesh = new Mesh(new BoxGeometry(.86, .49, 0.03), tvMaterial);
+  mesh.position.y += -.3 + .49 / 2 + .03 + yOffset;
   mesh.position.z += -0.07;
   return mesh;
 })());
 // Fireplace dark part
 scene.add((() => { 
   const mesh: Mesh = new Mesh(new BoxGeometry(.535, .38, 0.37), tvMaterial);
-  mesh.position.y += -.3  - .15 - .38 / 2;
+  mesh.position.y += -.3  - .15 - .38 / 2 + yOffset;
   return mesh;
 })());
+// vertical sill lower 1
+scene.add((() => { 
+  const mesh: Mesh = new Mesh(new BoxGeometry(.03, .675, 0.04), sillMaterial);
+  mesh.position.x += -1.025 / 2 - .775;
+  mesh.position.y += -.675 / 2 + yOffset;
+  return mesh;
+})());
+// vertical sill lower 2
+scene.add((() => { 
+  const mesh: Mesh = new Mesh(new BoxGeometry(.03, .675, 0.04), sillMaterial);
+  mesh.position.x += -1.025 / 2 - .03 / 2;
+  mesh.position.y += -.675 / 2 + yOffset;
+  return mesh;
+})());
+// vertical sill lower 3
+scene.add((() => { 
+  const mesh: Mesh = new Mesh(new BoxGeometry(.03, .675, 0.04), sillMaterial);
+  mesh.position.x += 1.025 / 2 + .775;
+  mesh.position.y += -.675 / 2 + yOffset;
+  return mesh;
+})());
+// vertical sill lower 4
+scene.add((() => { 
+  const mesh: Mesh = new Mesh(new BoxGeometry(.03, .675, 0.04), sillMaterial);
+  mesh.position.x += 1.025 / 2 + .03 / 2;
+  mesh.position.y += -.675 / 2 + yOffset;
+  return mesh;
+})());
+
+// vertical sill upper 1
+scene.add((() => { 
+  const mesh: Mesh = new Mesh(new BoxGeometry(.03, .675, 0.04), sillMaterial);
+  mesh.position.x += -1.025 / 2 - .775;
+  mesh.position.y += .42 + .675 / 2 + yOffset;
+  return mesh;
+})());
+// vertical sill upper 2
+scene.add((() => { 
+  const mesh: Mesh = new Mesh(new BoxGeometry(.03, .675, 0.04), sillMaterial);
+  mesh.position.x += -1.025 / 2 - .03 / 2;
+  mesh.position.y += .42 + .675 / 2 + yOffset;
+  return mesh;
+})());
+// vertical sill upper 3
+scene.add((() => { 
+  const mesh: Mesh = new Mesh(new BoxGeometry(.03, .675, 0.04), sillMaterial);
+  mesh.position.x += 1.025 / 2 + .775;
+  mesh.position.y += .42 + .675 / 2 + yOffset;
+  return mesh;
+})());
+// vertical sill upper 4
+scene.add((() => { 
+  const mesh: Mesh = new Mesh(new BoxGeometry(.03, .675, 0.04), sillMaterial);
+  mesh.position.x += 1.025 / 2 + .03 / 2;
+  mesh.position.y += .42 + .675 / 2 + yOffset;
+  return mesh;
+})());
+// vertical sill upper 5
+scene.add((() => { 
+  const mesh: Mesh = new Mesh(new BoxGeometry(.03, .675, 0.04), sillMaterial);
+  mesh.position.x += -.775 / 2;
+  mesh.position.y += .42 + .675 / 2 + .245 + yOffset;
+  return mesh;
+})());
+// vertical sill upper 6
+scene.add((() => { 
+  const mesh: Mesh = new Mesh(new BoxGeometry(.03, .675, 0.04), sillMaterial);
+  mesh.position.x += .775 / 2;
+  mesh.position.y += .42 + .675 / 2 + .245 + yOffset;
+  return mesh;
+})());
+
+// horizontal sill left 1
+scene.add((() => { 
+  const mesh: Mesh = new Mesh(new BoxGeometry(.775, .03, 0.04), sillMaterial);
+  mesh.position.x += -1.025 / 2 - .775 / 2;
+  mesh.position.y += -.03 / 2 + yOffset;
+  return mesh;
+})());
+// horizontal sill left 2
+scene.add((() => { 
+  const mesh: Mesh = new Mesh(new BoxGeometry(.775, .03, 0.04), sillMaterial);
+  mesh.position.x += -1.025 / 2 - .775 / 2;
+  mesh.position.y += -.675 + .03 / 2 + yOffset;
+  return mesh;
+})());
+// horizontal sill left 3
+scene.add((() => { 
+  const mesh: Mesh = new Mesh(new BoxGeometry(.775, .03, 0.04), sillMaterial);
+  mesh.position.x += -1.025 / 2 - .775 / 2;
+  mesh.position.y += .42 + .03 / 2 + yOffset;
+  return mesh;
+})());
+// horizontal sill left 4
+scene.add((() => { 
+  const mesh: Mesh = new Mesh(new BoxGeometry(.775, .03, 0.04), sillMaterial);
+  mesh.position.x += -1.025 / 2 - .775 / 2;
+  mesh.position.y += .42 + .675 - .03 / 2 + yOffset;
+  return mesh;
+})());
+
+// horizontal sill center 1
+scene.add((() => { 
+  const mesh: Mesh = new Mesh(new BoxGeometry(.775, .03, 0.04), sillMaterial);
+  mesh.position.y += .42 + .245 + .03 / 2 + yOffset;
+  return mesh;
+})());
+// horizontal sill center 2
+scene.add((() => { 
+  const mesh: Mesh = new Mesh(new BoxGeometry(.775, .03, 0.04), sillMaterial);
+  mesh.position.y += .42 + .245 + .675 - .03 / 2 + yOffset;
+  return mesh;
+})());
+
+// horizontal sill right 1
+scene.add((() => { 
+  const mesh: Mesh = new Mesh(new BoxGeometry(.775, .03, 0.04), sillMaterial);
+  mesh.position.x += 1.025 / 2 + .775 / 2;
+  mesh.position.y += -.03 / 2 + yOffset;
+  return mesh;
+})());
+// horizontal sill right 2
+scene.add((() => { 
+  const mesh: Mesh = new Mesh(new BoxGeometry(.775, .03, 0.04), sillMaterial);
+  mesh.position.x += 1.025 / 2 + .775 / 2;
+  mesh.position.y += -.675 + .03 / 2 + yOffset;
+  return mesh;
+})());
+// horizontal sill right 3
+scene.add((() => { 
+  const mesh: Mesh = new Mesh(new BoxGeometry(.775, .03, 0.04), sillMaterial);
+  mesh.position.x += 1.025 / 2 + .775 / 2;
+  mesh.position.y += .42 + .03 / 2 + yOffset;
+  return mesh;
+})());
+// horizontal sill right 4
+scene.add((() => { 
+  const mesh: Mesh = new Mesh(new BoxGeometry(.775, .03, 0.04), sillMaterial);
+  mesh.position.x += 1.025 / 2 + .775 / 2;
+  mesh.position.y += .42 + .675 - .03 / 2 + yOffset;
+  return mesh;
+})());
+
+// floor
+scene.add((() => { 
+  const mesh: Mesh = new Mesh(new BoxGeometry(3.5, .03, 3.5), floorMaterial);
+  mesh.position.y += -.675 - .205 - .03 / 2 + yOffset;
+  return mesh;
+})());
+
 
 
 
