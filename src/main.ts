@@ -132,21 +132,21 @@ scene.add((() => {
   return mesh;
 })());
 // Small TV
-/*
 scene.add((() => { 
   const mesh: Mesh = new Mesh(new BoxGeometry(.655, .375, 0.03), tvMaterial);
   mesh.position.y += -.3 + .375 / 2 + .03;
   mesh.position.z += 0.07;
   return mesh;
 })());
-*/
 // Large TV
+/*
 scene.add((() => { 
   const mesh: Mesh = new Mesh(new BoxGeometry(.76, .46, 0.03), tvMaterial);
   mesh.position.y += -.3 + .46 / 2 + .03 + yOffset;
   mesh.position.z += 0.07;
   return mesh;
 })());
+*/
 // 98 inch
 scene.add((() => { 
   const mesh: Mesh = new Mesh(new BoxGeometry(.86, .49, 0.03), tvMaterial);
