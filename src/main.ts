@@ -8,7 +8,12 @@ import {
     Mesh,
     DirectionalLight,
     Vector3,
-    MathUtils
+    MathUtils,
+    PlaneGeometry,
+    MeshBasicMaterial,
+    TextureLoader,
+    DoubleSide, 
+    PointLight
 } from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { Sky } from 'three/examples/jsm/objects/Sky';
@@ -134,17 +139,53 @@ scene.add((() => {
 // Small TV
 scene.add((() => { 
   const mesh: Mesh = new Mesh(new BoxGeometry(.655, .375, 0.03), tvMaterial);
-  mesh.position.y += -.3 + .375 / 2 + .03;
+  mesh.position.y += -.3 + .375 / 2 + .03 + yOffset;
   mesh.position.z += 0.07;
   return mesh;
 })());
+scene.add((() => {
+  const textureLoader = new TextureLoader();
+  const imageTexture = textureLoader.load('../../football.png');
+  const geometry = new PlaneGeometry(.635, .355);
+  const material = new MeshBasicMaterial({
+    map: imageTexture,
+    side: DoubleSide
+  });
+  const plane = new Mesh(geometry, material);
+  plane.position.y += -.3 + .375 / 2 + .03 + yOffset;
+  plane.position.z += 0.071 + .03 / 2;
+  return plane;
+})());
+scene.add((() => {
+  const light = new PointLight(0xaaffaa, 0.1, 100);
+  light.position.set(.15, -.3 + .375 / 2 + .03 + yOffset, 0.07 + .03 / 2 + .05);
+  return light;
+})());
+scene.add((() => {
+  const light = new PointLight(0xaaffaa, 0.1, 100);
+  light.position.set(-.15, -.3 + .375 / 2 + .03 + yOffset, 0.07 + .03 / 2 + .05);
+  return light;
+})());
 // Large TV
 /*
-scene.add((() => { 
+scene.add((() => {   
   const mesh: Mesh = new Mesh(new BoxGeometry(.76, .46, 0.03), tvMaterial);
   mesh.position.y += -.3 + .46 / 2 + .03 + yOffset;
   mesh.position.z += 0.07;
   return mesh;
+})());
+scene.add((() => {
+  const textureLoader = new TextureLoader();
+  const imageTexture = textureLoader.load('../../football.png');
+  const geometry = new PlaneGeometry(.74, .44);
+  const material = new MeshBasicMaterial({
+    map: imageTexture,
+    side: DoubleSide
+  });
+  const plane = new Mesh(geometry, material);
+  plane.position.y += -.3 + .46 / 2 + .03 + yOffset;
+  plane.position.z += 0.071 + .03 / 2;
+  return plane;
 })());
 */
 // 98 inch
@@ -154,6 +195,31 @@ scene.add((() => {
   mesh.position.z += -0.07;
   return mesh;
 })());
+scene.add((() => {
+  const textureLoader = new TextureLoader();
+  const imageTexture = textureLoader.load('../../football.png');
+  const geometry = new PlaneGeometry(.84, .47);
+  const material = new MeshBasicMaterial({
+    map: imageTexture,
+    side: DoubleSide
+  });
+  const plane = new Mesh(geometry, material);
+  plane.rotation.y += Math.PI;
+  plane.position.y += -.3 + .49 / 2 + .03 + yOffset;
+  plane.position.z += -0.071 - .03 / 2;
+  return plane;
+})());
+scene.add((() => {
+  const light = new PointLight(0xaaffaa, 0.1, 100);
+  light.position.set(.15, -.3 + .375 / 2 + .03 + yOffset, -0.07 - .03 / 2 - .05);
+  return light;
+})());
+scene.add((() => {
+  const light = new PointLight(0xaaffaa, 0.1, 100);
+  light.position.set(-.15, -.3 + .375 / 2 + .03 + yOffset, -0.07 - .03 / 2 - .05);
+  return light;
+})());
+
 // Fireplace dark part
 scene.add((() => { 
   const mesh: Mesh = new Mesh(new BoxGeometry(.535, .38, 0.37), tvMaterial);
@@ -309,6 +375,7 @@ scene.add((() => {
   mesh.position.y += -.675 - .205 - .03 / 2 + yOffset;
   return mesh;
 })());
+
 
 
 
