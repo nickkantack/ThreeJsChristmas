@@ -145,7 +145,7 @@ scene.add((() => {
 })());
 scene.add((() => {
   const textureLoader = new TextureLoader();
-  const imageTexture = textureLoader.load('../../football.png');
+  const imageTexture = textureLoader.load('../football.png');
   const geometry = new PlaneGeometry(.635, .355);
   const material = new MeshBasicMaterial({
     map: imageTexture,
@@ -176,7 +176,7 @@ scene.add((() => {
 })());
 scene.add((() => {
   const textureLoader = new TextureLoader();
-  const imageTexture = textureLoader.load('../../football.png');
+  const imageTexture = textureLoader.load('../football.png');
   const geometry = new PlaneGeometry(.74, .44);
   const material = new MeshBasicMaterial({
     map: imageTexture,
@@ -197,7 +197,7 @@ scene.add((() => {
 })());
 scene.add((() => {
   const textureLoader = new TextureLoader();
-  const imageTexture = textureLoader.load('../../football.png');
+  const imageTexture = textureLoader.load('../football.png');
   const geometry = new PlaneGeometry(.84, .47);
   const material = new MeshBasicMaterial({
     map: imageTexture,
